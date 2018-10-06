@@ -1,69 +1,25 @@
 dushyant@dushyant-VirtualBox:~$ history 
-    1  sudo apt-get install virtualbox
-    2  ls
-    3  ifconfig 
-    4  sudo apt install net-tools
-    5  apt install net-tools
-    6  sudo apt install net-tools
-    7  ifconfig 
-    8  dhclient 
-    9  sudo dhclient 
-   10  ifconfig 
-   11  ifconfig all 
-   12  ifconfig --help 
-   13  ifconfig -a
-   14  ifconfig --help 
-   15  ifconfig -v
-   16  ifconfig -z
-   17  ifconfig -s
-   18  ifconfig -s --help
-   19  ifconfig -a
-   20  sgutdown 
-   21  shutdown 
-   22  shutdown now 
-   23  cd 
-   24  ls 
-   25  cd 
-   26  ls 
-   27  su 
-   28  laludnd8858
-   29  su 
-   30  sudo su -
+
    31  sudo apt-get update 
    32  sudo apt-get install apt-transport-https ca-certificates curl software-properties-common 
-   33  clear 
-   34  history 
-   35  curl -fsSl https//:download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
    36  curl -fsSl https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
    37  sudo apt-key fingerprint 0EBFCD88
-   38  sudo add-key-repository "deb[arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-   39  sudo add-apt-repository "deb[arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+
    40  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
    41  sudo apt-get update 
+
    42  sudo apt-get install docker-ce 
-   43  docker run hello-world
+
    44  sudo docker run hello-world
-   45  clear 
-   46  history 
-   47  clear 
-   48  sudo docker run hello-world
-   49  docker info 
+
    50  sudo docker info 
-   51  docker image ls 
+
    52  sudo docker image ls 
    53  sudo docker container ls -all 
-   54  clear 
-   55  sudo su -
-   56  exit 
-   57  su 
-   58  su -
-   59  su -root 
-   60  history 
-   61  sudo su -
-   62  exit 
-   63  sudo su -
-   64  history 
-   65  sudo su -
+
+   59  sudo su -root 
+  
    66  history 
 ****************** Installation is DONE **********************
 
@@ -71,17 +27,15 @@ dushyant@dushyant-VirtualBox:~$ history
 
 
 root@dushyant-VirtualBox:/var/lib/docker/volumes/wp_data/_data# history 
-    1  ls 
-    2  clear 
+
     3  docker image
     4  docker image --help 
-    5  clear 
-    6  docker images] --help 
+
     7  docker images --help 
     8  clear 
     9  docker pull busybox
    10  docker run --help
-   11  clear 
+
    12  docker run --detach --name server busybox
    13  docker ps 
    14  history 
@@ -106,13 +60,18 @@ root@dushyant-VirtualBox:/var/lib/docker/volumes/wp_data/_data# history
    33  ifconfig a
    34  ifconfig 
    35  clear 
-   36  # Closed Networking Model
+
+
+
+   36  ********Closed Networking Model*************
    37  docker run -it --rm --net none busybox ifconfig -a
-   38  # Bridged Networking Model: DEFAULT MODE
+
+   38  ********Bridged Networking Model: DEFAULT MODE****************
    39  docker run -it --rm  none busybox ifconfig -a
    40  docker run -it --rm  busybox ifconfig -a
    41  docker run -it --rm --net bridge  busybox ifconfig -a
-   42  # Open Nwtworking Model
+
+   42  *************Open Networking Model*******************
    43  docker run -d -p 80 --name webserver httpd
    44  docker ps 
    45  docker stop webserver 
@@ -130,7 +89,7 @@ root@dushyant-VirtualBox:/var/lib/docker/volumes/wp_data/_data# history
    57  docker rm webserver 
    58  docker run -d -p 127.0.0.1::80 --name webserver httpd
    59  docker ps 
-   60  # Open Model 
+   60  ###### Open Model  ##########
    61  docker stop webserver 
    62  docker rm webserver 
    63  docker run -d --name webserver --net host  httpd
@@ -161,19 +120,21 @@ root@dushyant-VirtualBox:/var/lib/docker/volumes/wp_data/_data# history
    88  mv /root/test.html .
    89  docker run -d --name webserver -p 8080:80 -v "$(pwd)":/usr/local/apache2/htdocs httpd
    90  cat test.html
-   91  # Above config is for Blind volume 
-   92  # Above config is for Bind Mounts
+   91
+   92  ##### Above config is for Bind Mounts
    93  docker stop webserver && docker rm websrver
    94  docker stop webserver && docker rm webserver
    95  docker volume create web-data-vol
    96  docker volume inspect web-data-vol
    97  cd /var/lib/docker/volumes/web-data-vol/_data
-   98  #Named Volume\
+
+   98  ####### Named Volume
    99  docker run -d --name webserver -p 8080:80 -v web-data-vol:/usr/local/apache2/htdocs httpd
   100  ls -l
   101  cat index.html 
   102  mv /opt/test.html .
-  103  #TMPFS Mounts
+
+  103  ########## TMPFS Mounts
   104  clear
   105  cd
   106  docker run -ild --name secureserver --tmpfs /tmp busybox
@@ -196,6 +157,12 @@ root@dushyant-VirtualBox:/var/lib/docker/volumes/wp_data/_data# history
   123  docker attach secureserver 
   124  history 
   125  clear 
+
+
+
+
+
+
   126  #########LAB LAMP Stack###
   127  docker run -e MYSQL_ROOT_PASSWORD=admin -e 
   128  MYSQL_USER=wordpress -e MYSQL_PASSWORD=wordpress -e 
@@ -232,6 +199,12 @@ root@dushyant-VirtualBox:/var/lib/docker/volumes/wp_data/_data# history
   159  docker rm  wordpressdb 
   160  docker stop webserver 
   161  docker ps 
+
+
+
+
+
+
   162  ####### LAMP start $$$$$$
   163  clear 
   164  history 
@@ -253,3 +226,4 @@ root@dushyant-VirtualBox:/var/lib/docker/volumes/wp_data/_data# history
   180  ls -l 
   181  hisory 
   182  history
+
